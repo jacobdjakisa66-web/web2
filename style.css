@@ -1,0 +1,234 @@
+/* ==========================================================================
+   1. VARIABLES & REINITIALISATION
+   ========================================================================== */
+:root {
+  /* Palette de couleurs "Bio / Nature" */
+  --primary-color: #2D5A27;       /* Vert forêt profond */
+  --primary-light: #8FBC8F;       /* Vert sauge */
+  --accent-color: #D4A373;        /* Ocre / Beige doré */
+  --bg-color: #FAFAFA;            /* Blanc cassé doux */
+  --card-bg: #FFFFFF;             /* Blanc pur */
+  --text-dark: #2C3E50;           /* Gris très foncé */
+  --text-muted: #6C757D;          /* Gris moyen */
+  
+  /* Ombres et Bordures */
+  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --shadow-soft: 0 10px 30px rgba(45, 90, 39, 0.08);
+  --shadow-hover: 0 15px 35px rgba(45, 90, 39, 0.15);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. EN-TÊTE (HEADER)
+   ========================================================================== */
+header {
+  background: linear-gradient(135deg, #1e3d1a, var(--primary-color));
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 20px;
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  margin-bottom: 40px;
+}
+
+#nom-du-boutique h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+#slogan p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #E8F5E9;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   3. SECTION PRODUITS & CSS GRID
+   ========================================================================== */
+#service {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#service h2 {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.intro-text {
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 35px;
+}
+
+/* GRILLE CSS PRINCIPALE */
+.grille-produits {
+  display: grid;
+  /* Grille réactive : crée automatiquement autant de colonnes de 280px min que possible */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  list-style: none;
+}
+
+/* CARTE PRODUIT */
+.carte-produit {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.carte-produit:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.carte-produit img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Empêche les images de se déformer */
+}
+
+.info-produit {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Aligne le bas des cartes */
+}
+
+.info-produit strong {
+  font-size: 1.15rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.info-produit p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex-grow: 1; /* Pousse le prix vers le bas */
+  margin-bottom: 15px;
+}
+
+.prix {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  background-color: #E8F5E9;
+  padding: 6px 14px;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+/* ==========================================================================
+   4. FORMULAIRE D'INSCRIPTION
+   ========================================================================== */
+#zone-inscription {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.form-container {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border-top: 5px solid var(--accent-color);
+}
+
+#zone-inscription h3 {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#zone-inscription p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-submit:hover {
+  background-color: #1e3d1a;
+}
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #FFFFFF;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid #EAEAEA;
+}
